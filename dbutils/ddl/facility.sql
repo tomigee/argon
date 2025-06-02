@@ -8,7 +8,8 @@ CREATE TABLE IF NOT EXISTS facility (
     zip TEXT,
     country TEXT,
     contacts JSONB,
-    FOREIGN KEY (nct_id) REFERENCES identification (nct_id)
+    FOREIGN KEY (nct_id) REFERENCES identification (nct_id),
+    UNIQUE (nct_id, name, status, city, state, zip, country)
 );
 
-CREATE INDEX idx_facility_nct_id ON facility(nct_id);
+CREATE INDEX IF NOT EXISTS idx_facility_nct_id ON facility(nct_id);

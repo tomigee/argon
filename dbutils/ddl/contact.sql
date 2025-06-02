@@ -5,7 +5,8 @@ CREATE TABLE IF NOT EXISTS contact (
     role TEXT,
     phone TEXT,
     email TEXT,
-    FOREIGN KEY (nct_id) REFERENCES identification (nct_id)
+    FOREIGN KEY (nct_id) REFERENCES identification (nct_id),
+    UNIQUE (nct_id, name, role, phone, email)
 );
 
-CREATE INDEX idx_contact_nct_id ON contact(nct_id);
+CREATE INDEX IF NOT EXISTS idx_contact_nct_id ON contact(nct_id);

@@ -5,7 +5,8 @@ CREATE TABLE IF NOT EXISTS outcome (
     measure TEXT,
     description TEXT,
     time_frame TEXT,
-    FOREIGN KEY (nct_id) REFERENCES identification (nct_id)
+    FOREIGN KEY (nct_id) REFERENCES identification (nct_id),
+    UNIQUE (nct_id, type, measure, description, time_frame)
 );
 
-CREATE INDEX idx_outcome_nct_id ON outcome(nct_id);
+CREATE INDEX IF NOT EXISTS idx_outcome_nct_id ON outcome(nct_id);

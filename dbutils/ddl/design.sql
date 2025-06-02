@@ -15,4 +15,4 @@ CREATE TABLE IF NOT EXISTS design (
     enrollment_count INTEGER
 );
 
-CREATE INDEX idx_study_type ON design(study_type);
+CREATE INDEX IF NOT EXISTS idx_study_type ON design(study_type);

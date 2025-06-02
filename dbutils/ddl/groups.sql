@@ -4,10 +4,9 @@ CREATE TABLE IF NOT EXISTS groups (
     group_type TEXT,
     group_description TEXT,
     group_label TEXT,
-    FOREIGN KEY (nct_id) REFERENCES identification (nct_id)
+    FOREIGN KEY (nct_id) REFERENCES identification (nct_id),
+    UNIQUE (nct_id, group_type, group_description, group_label)
 );
 
-CREATE INDEX idx_nct_id ON groups(nct_id);
-CREATE INDEX idx_group_type ON groups(group_type);
-
-
+CREATE INDEX IF NOT EXISTS idx_nct_id ON groups(nct_id);
+CREATE INDEX IF NOT EXISTS idx_group_type ON groups(group_type);

@@ -19,4 +19,4 @@ CREATE TABLE IF NOT EXISTS status (
     FOREIGN KEY (nct_id) REFERENCES identification (nct_id)
 );
 
-CREATE INDEX idx_status_overall_status ON status (overall_status);
+CREATE INDEX IF NOT EXISTS idx_status_overall_status ON status (overall_status);

@@ -16,4 +16,4 @@ CREATE TABLE IF NOT EXISTS identification (
     num_conditions INTEGER
 );
 
-CREATE INDEX idx_identification_org_study_id_type ON identification (org_study_id_type);
+CREATE INDEX IF NOT EXISTS idx_identification_org_study_id_type ON identification (org_study_id_type);
